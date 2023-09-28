@@ -53,10 +53,9 @@ module ActiveRecord
         include ColumnMethods
 
         private
-
-        def create_column_definition(*args)
-          Redshift::ColumnDefinition.new(*args)
-        end
+          def create_column_definition(name, type, options)
+            Redshift::ColumnDefinition.new(name, type, options)
+          end
       end
 
       class Table < ActiveRecord::ConnectionAdapters::Table
